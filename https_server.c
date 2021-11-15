@@ -32,7 +32,7 @@ int handle_post_request(struct evhttp_request *req, char *arg);
 
 struct bufferevent *ssl_bev_cb(struct event_base *base, void *arg);
 
-const char *FILEPATH = "/Users/wangziqi/Desktop/https_server/doc";
+const char *FILEPATH = "./doc";
 
 int main(int argc, const char *argv[]) {
     int port = 9999;
@@ -187,7 +187,7 @@ void handle_gen_cb(struct evhttp_request *req, void *arg) {
     goto done;
 
     err:
-    evhttp_send_error(req, 404, "Document was not found");
+    evhttp_send_error(req, HTTP_NOTFOUND, "Document was not found");
     if (fd >= 0)
         close(fd);
     done:
