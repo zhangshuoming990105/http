@@ -29,8 +29,8 @@ SSL_CTX *ssl_init() {
 
     //设置CTX的属性，通常的设置是指定SSL握手阶段证书的验证方式和加载自己的证书。
     //选择服务器证书和服务器私钥.
-    const char *certificate_chain = "server.cert";
-    const char *private_key = "server.key";
+    const char *certificate_chain = "../server.cert";
+    const char *private_key = "../server.key";
     //设置服务器证书和服务器私钥到CTX中
     info_report("Loading certificate chain from '%s'\n"
                 "and private key from '%s'\n",
